@@ -1,1 +1,7 @@
 /penv
+/.vscode
+/.pytest_cache
+/config/.env
+/config/__pycache__
+/tests/__pycache__
+/pipeline/__pycache__

@@ -1,0 +1,3 @@
+order_id,order_date,customer_id,customer_name,region,product_category,product_name,quantity_sold,unit_price,discount_%,discounted_price,total_price,profit_margin,profit,salesperson,payment_method,num_orders,total_spent,recency_days,avg_order_value
+1,2024-01-01,C1,Alice,East,Electronics,Laptop,2,100.0,10.0,90.0,180.0,20.0,36.0,John,Card,1,180.0,1,180.0
+2,2024-01-02,C2,Bob,West,Books,Novel,3,150.0,20.0,120.0,360.0,25.0,90.0,Jane,Cash,1,360.0,0,360.0
