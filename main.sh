@@ -3,8 +3,10 @@
 set -e  # Exit on error
 
 echo " Cleaning up old files"
-rm -f data/raw/*.csv
-rm -f data/staged/*.csv
+rm -f /home/juma/pricing_analysis/pricing-analytics-pipeline/data/staged/*.csv
+
+# adding modules paths
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 
 echo " Extracting data..."
 python3 pipeline/extract.py

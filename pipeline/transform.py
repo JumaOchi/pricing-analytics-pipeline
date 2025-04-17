@@ -74,7 +74,7 @@ def transform_data(file_path: str) -> pd.DataFrame:
 
     return final_df
 
-# Uncomment this to test directly
-#if __name__ == "__main__":
-#     transform_data("/home/juma/pricing_analysis/pricing-analytics-pipeline/data/staged/cleaned_raw.csv")
+
+if __name__ == "__main__":
+     transform_data("/home/juma/pricing_analysis/pricing-analytics-pipeline/data/staged/cleaned_raw.csv")
       

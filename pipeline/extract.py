@@ -56,8 +56,8 @@ def extract_data(file_path: str) -> pd.DataFrame:
 
     return df
 
-# Uncomment this to test directly
-# if __name__ == "__main__":
-#    data = extract_data("/home/juma/pricing_analysis/pricing-analytics-pipeline/data/raw/amazon_sales_dataset_2019_2024_corrected.xlsx")
-#    logging.info("Sample of extracted data:")
-#    print(data.head(10))
+
+if __name__ == "__main__":
+    data = extract_data("/home/juma/pricing_analysis/pricing-analytics-pipeline/data/raw/amazon_sales_dataset_2019_2024_corrected.xlsx")
+    logging.info("Sample of extracted data:")
+    print(data.head(3))
