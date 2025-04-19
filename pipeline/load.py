@@ -10,10 +10,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 def get_connection_string(config: dict) -> str:
     return f"postgresql+psycopg2://{config['user']}:{config['password']}@{config['host']}:{config['port']}/{config['database']}"
 
-def load_to_postgres(csv_path: str, table_name: str = "amazon_sales"):
+def load_to_postgres(csv_path: str, table_name: str):
     """
-    Load transformed CSV data into a PostgreSQL table.
-    
+    Load CSV data into a PostgreSQL table.
+
     Args:
         csv_path (str): Path to the CSV file.
         table_name (str): Target table name in PostgreSQL.
@@ -37,6 +37,11 @@ def load_to_postgres(csv_path: str, table_name: str = "amazon_sales"):
     except Exception as e:
         logging.error(f"Database load failed: {e}")
 
+
 if __name__ == "__main__":
     transformed_csv = "/home/juma/pricing_analysis/pricing-analytics-pipeline/data/staged/transformed.csv"
-    load_to_postgres(transformed_csv)
+    order_loss_csv = "/home/juma/pricing_analysis/pricing-analytics-pipeline/data/staged/order_loss_summary.csv"
+
+    # Load both
+    load_to_postgres(transformed_csv, table_name="amazon_sales")
+    load_to_postgres(order_loss_csv, table_name="order_loss_summary")
