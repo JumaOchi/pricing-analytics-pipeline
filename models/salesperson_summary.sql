@@ -13,6 +13,7 @@ WITH base_salesperson_data AS (
     FROM amazon_sales
     GROUP BY DATE_PART('year', CAST(order_date AS DATE)), salesperson
 ),
+
 loss_with_years AS (
     SELECT
         DATE_PART('year', CAST(s.order_date AS DATE)) AS year,
@@ -21,10 +22,10 @@ loss_with_years AS (
         SUM(l.units_affected) AS units_lost,
         COUNT(DISTINCT l.customer_id) AS customers_lost
     FROM order_loss_summary l
-    JOIN amazon_sales s
-      ON l.customer_id = s.customer_id
+    JOIN amazon_sales s ON l.customer_id = s.customer_id
     GROUP BY DATE_PART('year', CAST(s.order_date AS DATE)), s.salesperson
 )
+
 SELECT
     s.year,
     s.salesperson,
@@ -42,3 +43,5 @@ FROM base_salesperson_data s
 LEFT JOIN loss_with_years l
   ON s.salesperson = l.salesperson AND s.year = l.year
 ORDER BY s.year, s.salesperson;
+
+

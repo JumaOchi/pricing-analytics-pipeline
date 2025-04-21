@@ -51,9 +51,8 @@ def transform_data(file_path: str) -> pd.DataFrame:
         df_non_completed['discounted_price'] = df_non_completed['unit_price'] * (1 - df_non_completed['discount_%'] / 100)
         df_non_completed['total_price'] = df_non_completed['discounted_price'] * df_non_completed['quantity_sold']
 
-        # --- Aggregate data by customer_id ---
         enriched_loss_summary = df_non_completed.groupby(
-            ['customer_id', 'order_status', 'payment_method', 'region']
+            ['customer_id', 'order_status', 'payment_method', 'region', 'salesperson', 'order_date']
         ).agg(
             num_orders=('order_id', 'nunique'),
             num_customers=('customer_id', 'nunique'),

@@ -1,5 +1,5 @@
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import logging
 import os
 from config.db_config import DB_CONFIG
@@ -12,7 +12,7 @@ def get_connection_string(config: dict) -> str:
 
 def load_to_postgres(csv_path: str, table_name: str):
     """
-    Load CSV data into a PostgreSQL table.
+    Drop any dependent views, recreate the table from CSV, and load data into PostgreSQL.
 
     Args:
         csv_path (str): Path to the CSV file.
@@ -31,9 +31,14 @@ def load_to_postgres(csv_path: str, table_name: str):
 
     try:
         engine = create_engine(get_connection_string(DB_CONFIG))
-        with engine.connect() as conn:
+        with engine.begin() as conn:
+            # Drop table and any dependent objects (like views)
+            logging.info(f"Dropping '{table_name}' and dependent views with CASCADE...")
+            conn.execute(text(f"DROP TABLE IF EXISTS {table_name} CASCADE;"))
+
+            # Recreate table and load data
             df.to_sql(table_name, con=conn, if_exists='replace', index=False)
-            logging.info(f"Successfully loaded data into '{table_name}' table in PostgreSQL.")
+            logging.info(f"Successfully recreated and loaded data into '{table_name}' in PostgreSQL.")
     except Exception as e:
         logging.error(f"Database load failed: {e}")
 
