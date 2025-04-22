@@ -24,13 +24,17 @@ for filename in os.listdir(MODELS_DIR):
         with open(filepath, "r") as f:
             sql_body = f.read().strip().rstrip(";")
 
-        full_sql = f"CREATE OR REPLACE VIEW {view_name} AS {sql_body};"
+        # First drop the view if it exists
+        drop_view_sql = f"DROP VIEW IF EXISTS {view_name};"
+        full_sql = f"CREATE VIEW {view_name} AS {sql_body};"  # Create the new view
 
         try:
             with engine.begin() as conn:
-                conn.execute(text(full_sql))  #WRAPPED WITH text()
+                # Drop the view first
+                conn.execute(text(drop_view_sql))  
+                # Then create the new view
+                conn.execute(text(full_sql))
                 print(f"Created view: {view_name}")
         except Exception as e:
             print(f"Failed to create view: {view_name}")
             print(str(e))
-
