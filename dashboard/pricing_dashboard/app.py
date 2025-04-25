@@ -29,6 +29,8 @@ This project was built with:
 - **Python notebooks** for modeling and simulations  
 - **Streamlit** for interactive business storytelling
 - **Bash scripts** for automating processes
+- **Supabase** for data storage and hosting
 
+Developed by **[JumaOchi]** linkedIn: [JumaOchi](https://www.linkedin.com/in/victor-juma-837034185/)        
 Explore each page to dive into the data and uncover insights that can drive your pricing strategy forward.  
 """)
