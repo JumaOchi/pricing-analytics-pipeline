@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#08F7FE"  # Bright neon cyan
+backgroundColor = "#121212"  # Deep dark gray
+secondaryBackgroundColor = "#1E1E1E"  # Slightly lighter dark for containers
+textColor = "#FFFFFF"  # Crisp white for readability
+font = "monospace"  # Developer terminal aesthetic
