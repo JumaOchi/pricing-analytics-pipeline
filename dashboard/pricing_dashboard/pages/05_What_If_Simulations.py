@@ -54,7 +54,6 @@ st.markdown("""
 >  *Model trained on historical sales, pricing, and loss data from keggle(Amazon data 2019 -2024) credits:rahuljangir78.*
 
 ---
-Want to go deeper? Re-run the regression with more features (e.g. region type, seasonality) or deploy A/B tests guided by these simulations.
             - **Caution**: These are predictions, not guarantees. Real-world factors can lead to different outcomes. Always validate with 
             real data before making decisions.**
             - **Dataset may be bias and not a true adaptation of amazon data**
