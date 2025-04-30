@@ -107,7 +107,7 @@ The front-end is built using Streamlit with multiple tabs:
 ##  Tech Stack
 
 - **Languages**: Python, SQL, Bash
-- **Tools**: Streamlit, Supabase (PostgreSQL), SQLAlchemy, Pandas, Jupyter, Power BI (optional), dotenv
+- **Tools**: Streamlit, Supabase (PostgreSQL), SQLAlchemy, Pandas, Jupyter, dotenv
 - **Deployment**: Streamlit Cloud + Supabase
 
 ---
@@ -121,7 +121,7 @@ The front-end is built using Streamlit with multiple tabs:
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Open to collaboration, especially around:
 - Improving cluster logic
