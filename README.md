@@ -8,6 +8,7 @@ An end-to-end pricing analytics pipeline designed to help business stakeholders 
 
  [Launch the Dashboard](https://pricinganalyticspipeline.streamlit.app/)
 
+###  ⚠️ App may take 10–30 seconds to load if it's asleep. Streamlit puts the app to sleep to save server resource
 ---
 
 ##  Project Structure
